@@ -12,3 +12,4 @@
 // power
 // square root
 // factorial
+// fraction
