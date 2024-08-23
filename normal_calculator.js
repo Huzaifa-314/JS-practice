@@ -75,20 +75,11 @@ function power(a, b){
     return Math.pow(a, b);
 }
 
-
-
-
-
-
-
-
 // Main functionality 
 // ====================================
 // ====================================
 // ====================================
 // ====================================
-
-
 
 // catching error
 function calculate(expression) {
