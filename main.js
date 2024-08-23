@@ -23,6 +23,11 @@ function sqrt(a){
     return Math.sqrt(a);
 }
 
+function ln(a){
+    return Math.log(a);
+}
+
+function ln
 
 
 
