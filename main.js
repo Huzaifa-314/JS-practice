@@ -116,11 +116,15 @@ function multiplication(a){
 function factorial(a){
     let mul = 1;
 
-    for(let i = 1; i <= a; i++){
-        mul *= i;
+    if(a === 0 || a === 1){
+        return 1;
     }
-
-    return mul;
+    else{
+        for(let i = 2; i <= a; i++){
+            mul *= i;
+        }
+        return mul;
+    }
 }
 
 // power
