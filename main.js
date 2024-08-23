@@ -14,6 +14,12 @@
 // factorial
 // fraction
 
+<<<<<<< HEAD
 function addition(a,b){
     return a+b;
 }
+=======
+function Multiplication(a, b){
+    return a*b;
+}
+>>>>>>> 36bd3ca2c209a85a26bad2696a2a741c988de120
