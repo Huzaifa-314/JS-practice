@@ -15,7 +15,6 @@ function addition(a,b){
 function sin(a){
     return Math.sin(a);    
 }
-
 function tan(a){
     return Math.tan(a);
 }
@@ -126,11 +125,15 @@ function multiplication(a){
 function factorial(a){
     let mul = 1;
 
-    for(let i = 1; i <= a; i++){
-        mul *= i;
+    if(a === 0 || a === 1){
+        return 1;
     }
-
-    return mul;
+    else{
+        for(let i = 2; i <= a; i++){
+            mul *= i;
+        }
+        return mul;
+    }
 }
 
 // power
