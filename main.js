@@ -12,6 +12,10 @@ function addition(a,b){
     return a+b;
 }
 
+function sin(a){
+    return Math.sin()    
+}
+
 
 
 
