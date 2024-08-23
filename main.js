@@ -13,3 +13,7 @@
 // square root
 // factorial
 // fraction
+
+function addition(a,b){
+    return a+b;
+}
