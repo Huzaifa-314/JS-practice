@@ -12,7 +12,17 @@ function addition(a,b){
     return a+b;
 }
 
+function sin(a){
+    return Math.sin(a);    
+}
 
+function tan(a){
+    return Math.tan(a);
+}
+
+function sqrt(a){
+    return Math.sqrt(a);
+}
 
 
 
