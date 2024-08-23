@@ -1,110 +1,38 @@
-// addition
-// trigonometry
-    // 1. sin 
-    // 2. cos
-    // 3. tan
 // 10 base log
-// natural log
-// square root
-// fraction
 
 function addition(a,b){
     return a+b;
 }
 
+// Sine
 function sin(a){
     return Math.sin(a);    
 }
+
+// Cosine
+function cos(a){
+    return Math.cos(a);
+}
+
+// tangent
 function tan(a){
     return Math.tan(a);
 }
 
+// squer root
 function sqrt(a){
     return Math.sqrt(a);
 }
 
+// natural log
 function ln(a){
     return Math.log(a);
 }
 
-function ln
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// fraction
+function ln(a, b){
+    return a/b;
+}
 
 // substraction
 function subtraction(){
@@ -144,4 +72,16 @@ function factorial(a){
 // power
 function power(a, b){
     return Math.pow(a, b);
+}
+
+// Main functionality 
+
+let numberPads = document.querySelectorAll(".inputNumberPad");
+
+// numberPads.forEach((numberPad) => {
+//     console.log(numberPad);
+// });
+
+for(const numberPad in numberPads){
+    console.log(numberPads[numberPad]);
 }
