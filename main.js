@@ -93,11 +93,37 @@ function addition(a,b){
 
 
 // substraction
+function subtraction(){
+    return a-b;
+}
+
 // multiplication
-// division
-// percentage
-// factorial
-// power
 function multiplication(a, b){
     return a*b;
+}
+
+// division
+function multiplication(a, b){
+    return a/b;
+}
+
+// percentage
+function multiplication(a){
+    return a/100;
+}
+
+// factorial
+function factorial(a){
+    let mul = 1;
+
+    for(let i = 1; i <= a; i++){
+        mul *= i;
+    }
+
+    return mul;
+}
+
+// power
+function power(a, b){
+    return Math.pow(a, b);
 }
