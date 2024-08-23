@@ -74,23 +74,32 @@ function power(a, b){
     return Math.pow(a, b);
 }
 
+
+
+
+
+
+
+
+// Main functionality 
+// ====================================
+// ====================================
+// ====================================
+// ====================================
+
+
+
 // catching error
 function calculate(expression) {
     try {
-        // Try to evaluate the expression
-        let result = eval(expression);
-        if (isNaN(result)) {
-            throw new Error("Result is not a number.");
-        }
-        return result;
+        return eval(expression);
     } catch (error) {
-        // Catch any errors and handle them
-        console.error("Error:", error.message);
-        return "Error!";
+        return "Math Error";
     }
 }
 
-// Main functionality 
+
+
 
 let numberPads = document.querySelectorAll(".inputNumberPad");
 let display = document.querySelector(".display");
