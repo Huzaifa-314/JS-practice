@@ -39,3 +39,6 @@ form input{
 	align-items: center;
 	cursor: pointer;
 }
+.clear{
+	width: 160px;
+}
