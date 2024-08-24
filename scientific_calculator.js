@@ -1,9 +1,5 @@
 // 10 base log
 
-function addition(a,b){
-    return a+b;
-}
-
 // Sine
 function sin(a){
     return Math.sin(a);    
@@ -29,46 +25,6 @@ function ln(a){
     return Math.log(a);
 }
 
-// fraction
-function ln(a, b){
-    return a/b;
-}
-
-// substraction
-function subtraction(){
-    return a-b;
-}
-
-// multiplication
-function multiplication(a, b){
-    return a*b;
-}
-
-// division
-function multiplication(a, b){
-    return a/b;
-}
-
-// percentage
-function multiplication(a){
-    return a/100;
-}
-
-// factorial
-function factorial(a){
-    let mul = 1;
-
-    if(a === 0 || a === 1){
-        return 1;
-    }
-    else{
-        for(let i = 2; i <= a; i++){
-            mul *= i;
-        }
-        return mul;
-    }
-}
-
 // power
 function power(a, b){
     return Math.pow(a, b);
@@ -80,6 +36,24 @@ function power(a, b){
 // ====================================
 // ====================================
 
+let numberPads = document.querySelectorAll(".btn");
+let display = document.querySelector("#head");
+let logBtn = document.querySelector(".logarithm");
+let sineBtn = document.querySelector(".sine");
+let cosineBtn = document.querySelector(".cosine");
+let tangentBtn = document.querySelector(".tangent");
+let squreBtn = document.querySelector(".squre");
+let rootBtn = document.querySelector(".root");
+let powerBtn = document.querySelector(".power");
+let braketBtn1 = document.querySelector(".braket1");
+let braketBtn2 = document.querySelector(".braket2");
+let equalBtn = document.querySelector(".equal");
+let numberBtns = document.querySelectorAll(".number");
+let clearBtn = document.querySelector(".clear");
+let backSpaceBtn = document.querySelector(".backspace");
+let binaryOps = document.querySelectorAll(".binary_op");
+
+
 // catching error
 function calculate(expression) {
     try {
@@ -88,21 +62,6 @@ function calculate(expression) {
         return "Math Error";
     }
 }
-
-
-
-
-let numberPads = document.querySelectorAll(".inputNumberPad");
-let display = document.querySelector(".display");
-let equalBtn = document.querySelector(".equal");
-let numberBtns = document.querySelectorAll(".number");
-let clearBtn = document.querySelector(".clear");
-let binaryOps = document.querySelectorAll(".binary_op");
-
-let currentNum = "";
-let previousNum = "";
-let operator = "";
-
 numberBtns.forEach((numberBtn) => {
     numberBtn.addEventListener("click", () => {
        display.value += numberBtn.value; 
@@ -113,8 +72,32 @@ binaryOps.forEach((numberBtn) => {
        display.value += numberBtn.value; 
     });
 });
+
+sineBtn.addEventListener("click", () => {
+    display.value += sineBtn.value;
+});
+cosineBtn.addEventListener("click", () => {
+    display.value += cosineBtn.value;
+});
+tangentBtn.addEventListener("click", () => {
+    display.value += tangentBtn.value;
+});
+logBtn.addEventListener("click", () => {
+    display.value += logBtn.value;
+});
+
+braketBtn1.addEventListener("click", () => {
+    display.value += braketBtn1.value;
+});
+braketBtn2.addEventListener("click", () => {
+    display.value += braketBtn2.value;
+});
+
 equalBtn.addEventListener("click", () => {
     display.value = calculate(display.value);
+});
+backSpaceBtn.addEventListener("click", () => {
+    display.value = display.value.slice(0, -1);
 });
 clearBtn.addEventListener("click", () => {
     display.value = "";
