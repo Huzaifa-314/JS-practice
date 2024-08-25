@@ -15,8 +15,22 @@ let clearBtn = document.querySelector(".clear");
 let backSpaceBtn = document.querySelector(".backspace"); 
 let binaryOps = document.querySelectorAll(".binary_op"); 
 
-let things_to_replace = new Set();
 
+// global variables
+let things_to_replace = new Set();
+replace = {
+    "sin" : "Math.sin",
+    "cos" : "Math.sin",
+    "tan" : "Math.tan",
+    "log" : "Math.log",
+    "pow" : "Math.pow"
+}
+
+
+
+//functions
+// =================
+// =================
 
 // catching error
 function calculate(expression) {
@@ -30,13 +44,17 @@ function calculate(expression) {
 // expression finalize function
 function finalize(expression){
     things_to_replace.forEach((thing) =>{
-        
-
+        refined_expression = expression.replace(thing, replace[thing]);
     });
-    
-    return expression;
+    console.log(refined_expression);
+    return refined_expression;
 }
 
+
+
+//buttons to display
+// ===============================
+// ===============================
 numberBtns.forEach((numberBtn) => {
     numberBtn.addEventListener("click", () => {
        display.value += numberBtn.value; 
@@ -53,24 +71,21 @@ braketBtn1.addEventListener("click", () => {
 braketBtn2.addEventListener("click", () => {
     display.value += braketBtn2.value;
 });
-
-
-
-
 sineBtn.addEventListener("click", () => {
     things_to_replace.add("sin");
     display.value += sineBtn.value;
 });
-
-
-
-
-
-
-powerBtn.addEventListener("click", () => {
-    let x = prompt("Enter Base Number : ");
-    let y = prompt("Enter Power Number : ");
-    display.value = Math.pow(x, y);
+cosineBtn.addEventListener("click", () => {
+    things_to_replace.add("cos");
+    display.value += cosineBtn.value;
+});
+tangentBtn.addEventListener("click", () => {
+    things_to_replace.add("tan");
+    display.value += tangentBtn.value;
+});
+logBtn.addEventListener("click", () => {
+    things_to_replace.add("log");
+    display.value += logBtn.value;
 });
 squreBtn.addEventListener("click", () => {
     display.value = Math.pow(display.value, 2);
@@ -78,29 +93,23 @@ squreBtn.addEventListener("click", () => {
 rootBtn.addEventListener("click", () => {
     display.value = Math.sqrt(display.value);
 });
-cosineBtn.addEventListener("click", () => {
-    things_to_replace.add("cos");
-    display.value = Math.cos(display.value);
-    // display.value += cosineBtn.value;
-});
-tangentBtn.addEventListener("click", () => {
-    things_to_replace.add("tan");
-    display.value = Math.tan(display.value);
-    // display.value += tangentBtn.value;
-});
-logBtn.addEventListener("click", () => {
-    things_to_replace.add("log");
-    display.value = Math.log(display.value);
-    // display.value += logBtn.value;
+powerBtn.addEventListener("click", () => {
+    things_to_replace.add("pow");
+    display.value += powerBtn.value;
 });
 
 
 
 
+
+
+// calculation operational buttons
+// ================================
+// ================================
 equalBtn.addEventListener("click", () => {
-    things_to_replace.clear();
     expression = finalize(display.value);
     display.value = calculate(expression);
+    things_to_replace.clear();
 });
 backSpaceBtn.addEventListener("click", () => {
     display.value = display.value.slice(0, -1);
