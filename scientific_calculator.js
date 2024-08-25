@@ -80,7 +80,3 @@ backSpaceBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
     display.value = "";
 });
-
-function fun(){
-    return "Hello World";
-}
