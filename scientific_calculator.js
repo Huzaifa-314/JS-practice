@@ -81,4 +81,6 @@ clearBtn.addEventListener("click", () => {
     display.value = "";
 });
 
-// trying to fixed my environment
+function fun(){
+    console.log("Hello World");
+}
