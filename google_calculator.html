@@ -11,53 +11,53 @@
     <div class="calculator-container">
       <div class="calculator">
         <div class="display">
-          <input type="text">
+          <input type="text" />
         </div>
         <div class="buttons">
           <div class="row">
-            <button>Rad</button>
+            <button class="red backspace">DEL</button>
             <button>Deg</button>
             <button>x!</button>
-            <button>(</button>
-            <button>)</button>
+            <button class="bracket_open">(</button>
+            <button class="bracket_close">)</button>
             <button>%</button>
-            <button class="red">CE</button>
+            <button class="red clear">AC</button>
           </div>
           <div class="row">
             <button>Inv</button>
-            <button value="Math.sin">sin</button>
+            <button value="Math.sin" class="sine">sin</button>
             <button>ln</button>
-            <button class="black">7</button>
-            <button class="black">8</button>
-            <button class="black">9</button>
-            <button>+</button>
+            <button class="black digit">7</button>
+            <button class="black digit">8</button>
+            <button class="black digit">9</button>
+            <button class="binary_op" value="/">÷</button>
           </div>
           <div class="row">
             <button>Pi</button>
-            <button value="Math.cos">cos</button>
-            <button value="Math.log">log</button>
-            <button class="black">4</button>
-            <button class="black">5</button>
-            <button class="black">6</button>
-            <button >x</button>
+            <button value="Math.cos" class="cosine">cos</button>
+            <button value="Math.log" class="logarithm">log</button>
+            <button class="black digit">4</button>
+            <button class="black digit">5</button>
+            <button class="black digit">6</button>
+            <button class="binary_op" value="*">x</button>
           </div>
           <div class="row">
             <button>e</button>
-            <button value="Math.tan">tan</button>
-            <button value="Math.sqrt">√</button>
-            <button class="black">1</button>
-            <button class="black">2</button>
-            <button class="black">3</button>
-            <button>-</button>
+            <button value="Math.tan" class="tangent">tan</button>
+            <button value="Math.sqrt" class="root">√</button>
+            <button class="black digit">1</button>
+            <button class="black digit">2</button>
+            <button class="black digit">3</button>
+            <button class="binary_op">-</button>
           </div>
           <div class="row">
             <button>ANS</button>
             <button>EXP</button>
-            <button>x<sup>y</sup></button>
-            <button>,</button>
-            <button class="black">0</button>
-            <button class="blue">=</button>
-            <button>+</button>
+            <button class="power">x<sup>y</sup></button>
+            <button class="dot">.</button>
+            <button class="black digit">0</button>
+            <button class="blue equal">=</button>
+            <button class="binary_op">+</button>
           </div>
         </div>
       </div>

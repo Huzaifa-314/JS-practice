@@ -15,7 +15,6 @@ let clearBtn = document.querySelector(".clear");
 let backSpaceBtn = document.querySelector(".backspace"); 
 let binaryOps = document.querySelectorAll(".binary_op"); 
 
-
 // global variables
 let things_to_replace = new Set();
 replace = {
@@ -25,8 +24,6 @@ replace = {
     "log" : "Math.log",
     "pow" : "Math.pow"
 }
-
-
 
 //functions
 // =================
@@ -49,8 +46,6 @@ function finalize(expression){
     console.log(refined_expression);
     return refined_expression;
 }
-
-
 
 //buttons to display
 // ===============================
@@ -97,11 +92,6 @@ powerBtn.addEventListener("click", () => {
     things_to_replace.add("pow");
     display.value += powerBtn.value;
 });
-
-
-
-
-
 
 // calculation operational buttons
 // ================================
