@@ -80,3 +80,5 @@ backSpaceBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
     display.value = "";
 });
+
+// trying to fixed my environment
