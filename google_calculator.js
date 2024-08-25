@@ -14,9 +14,11 @@ document.addEventListener("DOMContentLoaded", function(){
     let clearBtn = document.querySelector(".clear"); 
     let backSpaceBtn = document.querySelector(".backspace"); 
     let binaryOps = document.querySelectorAll(".binary_op");
+    let reminderBtn = document.querySelector(".reminder");
+    let factorialBtn = document.querySelector(".factorial");
 
     expression = "";
-    buttons_to_display = [dotBtn, bracket_open_Btn, bracket_close_Btn, sineBtn, cosineBtn, tangentBtn, logBtn, rootBtn];
+    buttons_to_display = [dotBtn, bracket_open_Btn, bracket_close_Btn, sineBtn, cosineBtn, tangentBtn, logBtn, rootBtn, reminderBtn, factorialBtn];
 
     //functions
     // =================
@@ -30,6 +32,25 @@ document.addEventListener("DOMContentLoaded", function(){
             return "Math Error";
         }
     }
+
+    // factorial
+    function factorial(a){
+        let mul = 1;
+
+        if(a === 0 || a === 1){
+            return 1;
+        }
+        else{
+            for(let i = 2; i <= a; i++){
+                mul *= i;
+            }
+            return mul;
+        }
+    }
+
+    factorialBtn.addEventListener("click", () => {
+
+    });
 
     //buttons to display
     // ===============================
@@ -76,4 +97,3 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // problem
 // have to erase
-
