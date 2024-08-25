@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", function(){
     let factorialBtn = document.querySelector(".factorial");
 
     expression = "";
-    buttons_to_display = [dotBtn, bracket_open_Btn, bracket_close_Btn, sineBtn, cosineBtn, tangentBtn, logBtn, rootBtn, reminderBtn, factorialBtn];
+    buttons_to_display = [dotBtn, bracket_open_Btn, bracket_close_Btn, sineBtn, cosineBtn, tangentBtn, logBtn, rootBtn, reminderBtn];
+    const binaryOperators = ["+", "-", "*", "/", "%"];
+
 
     //functions
     // =================
@@ -48,9 +50,24 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
-    factorialBtn.addEventListener("click", () => {
+    
 
+    factorialBtn.addEventListener("click", () => {
+        display.value += "!";
+        last_number = "";
+        start_index = 0;
+        for(let i=expression.length - 1 ; i >= 0 ; i--){
+            last_number+=expression[i];
+            start_index = i;
+            if(i-1 >= 0 && binaryOperators.includes(expression[i-1])) break;
+        }
+        console.log(start_index);
+        last_number = last_number.split('').reverse().join('');
+
+        expression = expression.slice(0,start_index)+"factorial("+last_number+")";
     });
+
+
 
     //buttons to display
     // ===============================
