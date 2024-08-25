@@ -48,16 +48,20 @@ rootBtn.addEventListener("click", () => {
 });
 
 sineBtn.addEventListener("click", () => {
-    display.value += sineBtn.value;
+    display.value = Math.sin(display.value);
+    // display.value += sineBtn.value;
 });
 cosineBtn.addEventListener("click", () => {
-    display.value += cosineBtn.value;
+    display.value = Math.cos(display.value);
+    // display.value += cosineBtn.value;
 });
 tangentBtn.addEventListener("click", () => {
-    display.value += tangentBtn.value;
+    display.value = Math.tan(display.value);
+    // display.value += tangentBtn.value;
 });
 logBtn.addEventListener("click", () => {
-    display.value += logBtn.value;
+    display.value = Math.log(display.value);
+    // display.value += logBtn.value;
 });
 
 braketBtn1.addEventListener("click", () => {
