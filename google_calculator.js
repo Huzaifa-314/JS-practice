@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", function(){
     let factorialBtn = document.querySelector(".factorial");
 
     expression = "";
-    buttons_to_display = [dotBtn, bracket_open_Btn, bracket_close_Btn, sineBtn, cosineBtn, tangentBtn, logBtn, reminderBtn];
+    buttons_to_display = [dotBtn, bracket_open_Btn, bracket_close_Btn, reminderBtn];
+    buttons_to_display_with_bracket = [rootBtn,sineBtn,cosineBtn,tangentBtn,logBtn];
     const binaryOperators = ["+", "-", "*", "/", "%"];
 
 
     //functions
     // =================
     // =================
-
     // catching error
     function calculate(expression) {
         try {
@@ -51,51 +51,70 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     // filtering open and close breakets
-    function closeOpenedBracktes(){
-        let openBracket = 0;
-        for(let i = 0; i < expression.length; i++){
-            if(expression[i] === "("){
-                openBracket++;
-            }
-            if(openBracket > 0 && binaryOperators.includes(expression[i])){
-                indexToSlice = i;
-                while(openBracket--){
-                    expression = expression.slice(0,indexToSlice) + ")" + expression.slice(indexToSlice, expression.length);
-                    indexToSlice++;
-                }
-            }
-        }
-        while(openBracket--){
-            expression += ")";
-        }
-        console.log(expression);
-    }
+    // function closeOpenedBracktes(){
+    //     let openBracket = 0;
+    //     for(let i = 0; i < expression.length; i++){
+    //         if(expression[i] === "("){
+    //             openBracket++;
+    //         }
+    //         if(openBracket > 0 && binaryOperators.includes(expression[i])){
+    //             indexToSlice = i;
+    //             while(openBracket != 0){
+    //                 console.log("open Bracket: ", openBracket);
+    //                 expression = expression.slice(0,indexToSlice) + ")" + expression.slice(indexToSlice, expression.length);
+    //                 indexToSlice++;
+    //                 openBracket--;
+    //             }
+    //         }
+    //     }
+    //     while(openBracket--){
+    //         expression += ")";
+    //     }
+    //     console.log(expression);
+    // }
 
     factorialBtn.addEventListener("click", () => {
         display.value += "!";
-        last_number = "";
-        start_index = 0;
-        for(let i=expression.length - 1 ; i >= 0 ; i--){
-            last_number+=expression[i];
-            start_index = i;
-            if(i-1 >= 0 && binaryOperators.includes(expression[i-1])){ 
-                break;
+        if(expression[expression.length - 1] == ")"){
+            start_index=0;
+            openedBracket = 0;
+            closedBracket = 1;
+            for(let i=expression.length - 2 ; i >= 0 ; i--){
+                start_index = i;
+                if(expression[i] == "(") openedBracket++;
+                if(expression[i] == ")") closedBracket++;
+                if(openedBracket == closedBracket) break;
             }
+            expression = expression.slice(0,start_index) + "factorial" + expression.slice(start_index,expression.length);
+            console.log(expression);
+            
+            
         }
-        last_number = last_number.split('').reverse().join('');
-        console.log(expression);
-        expression = expression.slice(0,start_index)+`factorial(${last_number})`;
-        console.log(expression);
+        else {
+            last_number = "";
+            start_index = 0;
+            for(let i=expression.length - 1 ; i >= 0 ; i--){
+                last_number+=expression[i];
+                start_index = i;
+                if(i-1 >= 0 && binaryOperators.includes(expression[i-1])){ 
+                    break;
+                }
+            }
+            last_number = last_number.split('').reverse().join('');
+            console.log(expression);
+            expression = expression.slice(0,start_index)+`factorial(${last_number})`;
+            console.log(expression);
+        }
     });
 
-    rootBtn.addEventListener("click", () => {
-        display.value += rootBtn.innerText;
-        expression += "Math.sqrt(";
-        console.log(expression);
-        if(display.value === binaryOperators.includes(expression[expression.length - 1])){
-            expression += ")";
-        }
-    });
+    // rootBtn.addEventListener("click", () => {
+    //     display.value += "√(";
+    //     expression += "Math.sqrt(";
+    //     console.log(expression);
+    //     if(display.value === binaryOperators.includes(expression[expression.length - 1])){
+    //         expression += ")";
+    //     }
+    // });
 
 
     //buttons to display
@@ -106,6 +125,15 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     binaryOps.forEach((binaryOp) => {
         buttons_to_display.push(binaryOp);
+    });
+
+    buttons_to_display_with_bracket.forEach((button)=>{
+        button.addEventListener("click", () => {
+            display.value += button.innerText+"(";
+            if(button.value) expression += button.value+"(";
+            else expression += button.innerText+"(";
+            console.log(expression);
+        });
     });
 
     buttons_to_display.forEach((button)=>{
@@ -122,7 +150,6 @@ document.addEventListener("DOMContentLoaded", function(){
     // ================================
     // ================================
     equalBtn.addEventListener("click", () => {
-        closeOpenedBracktes();
         result = calculate(expression);
         display.value = result;
         expression += result;
