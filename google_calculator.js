@@ -50,29 +50,6 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
-    // filtering open and close breakets
-    // function closeOpenedBracktes(){
-    //     let openBracket = 0;
-    //     for(let i = 0; i < expression.length; i++){
-    //         if(expression[i] === "("){
-    //             openBracket++;
-    //         }
-    //         if(openBracket > 0 && binaryOperators.includes(expression[i])){
-    //             indexToSlice = i;
-    //             while(openBracket != 0){
-    //                 console.log("open Bracket: ", openBracket);
-    //                 expression = expression.slice(0,indexToSlice) + ")" + expression.slice(indexToSlice, expression.length);
-    //                 indexToSlice++;
-    //                 openBracket--;
-    //             }
-    //         }
-    //     }
-    //     while(openBracket--){
-    //         expression += ")";
-    //     }
-    //     console.log(expression);
-    // }
-
     factorialBtn.addEventListener("click", () => {
         display.value += "!";
         if(expression[expression.length - 1] == ")"){
@@ -106,15 +83,6 @@ document.addEventListener("DOMContentLoaded", function(){
             console.log(expression);
         }
     });
-
-    // rootBtn.addEventListener("click", () => {
-    //     display.value += "√(";
-    //     expression += "Math.sqrt(";
-    //     console.log(expression);
-    //     if(display.value === binaryOperators.includes(expression[expression.length - 1])){
-    //         expression += ")";
-    //     }
-    // });
 
 
     //buttons to display
