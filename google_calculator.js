@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let factorialBtn = document.querySelector(".factorial");
 
     expression = "";
-    buttons_to_display = [dotBtn, bracket_open_Btn, bracket_close_Btn, sineBtn, cosineBtn, tangentBtn, logBtn, rootBtn, reminderBtn];
+    buttons_to_display = [dotBtn, bracket_open_Btn, bracket_close_Btn, sineBtn, cosineBtn, tangentBtn, logBtn, reminderBtn];
     const binaryOperators = ["+", "-", "*", "/", "%"];
 
 
@@ -50,7 +50,26 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
-    
+    // filtering open and close breakets
+    function closeOpenedBracktes(){
+        let openBracket = 0;
+        for(let i = 0; i < expression.length; i++){
+            if(expression[i] === "("){
+                openBracket++;
+            }
+            if(openBracket > 0 && binaryOperators.includes(expression[i])){
+                indexToSlice = i;
+                while(openBracket--){
+                    expression = expression.slice(0,indexToSlice) + ")" + expression.slice(indexToSlice, expression.length);
+                    indexToSlice++;
+                }
+            }
+        }
+        while(openBracket--){
+            expression += ")";
+        }
+        console.log(expression);
+    }
 
     factorialBtn.addEventListener("click", () => {
         display.value += "!";
@@ -59,14 +78,24 @@ document.addEventListener("DOMContentLoaded", function(){
         for(let i=expression.length - 1 ; i >= 0 ; i--){
             last_number+=expression[i];
             start_index = i;
-            if(i-1 >= 0 && binaryOperators.includes(expression[i-1])) break;
+            if(i-1 >= 0 && binaryOperators.includes(expression[i-1])){ 
+                break;
+            }
         }
-        console.log(start_index);
         last_number = last_number.split('').reverse().join('');
-
-        expression = expression.slice(0,start_index)+"factorial("+last_number+")";
+        console.log(expression);
+        expression = expression.slice(0,start_index)+`factorial(${last_number})`;
+        console.log(expression);
     });
 
+    rootBtn.addEventListener("click", () => {
+        display.value += rootBtn.innerText;
+        expression += "Math.sqrt(";
+        console.log(expression);
+        if(display.value === binaryOperators.includes(expression[expression.length - 1])){
+            expression += ")";
+        }
+    });
 
 
     //buttons to display
@@ -93,7 +122,8 @@ document.addEventListener("DOMContentLoaded", function(){
     // ================================
     // ================================
     equalBtn.addEventListener("click", () => {
-        result = calculate(expression)
+        closeOpenedBracktes();
+        result = calculate(expression);
         display.value = result;
         expression += result;
     });
@@ -107,10 +137,3 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 })
-
-
-
-
-
-// problem
-// have to erase
